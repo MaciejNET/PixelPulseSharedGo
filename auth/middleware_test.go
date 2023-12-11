@@ -32,7 +32,7 @@ func TestAuthMiddleware(t *testing.T) {
 		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusUnauthorized)
 	}
 
-	validToken, _ := GenerateToken(User{Id: "test", Email: "test@test.com", SubscriptionType: "premium", Role: "admin"})
+	validToken, _ := GenerateToken(User{ID: "test", Email: "test@test.com", SubscriptionType: "premium", Role: "admin"})
 	req.Header.Set("Authorization", "Bearer "+validToken)
 	rr = httptest.NewRecorder()
 	handler.ServeHTTP(rr, req)

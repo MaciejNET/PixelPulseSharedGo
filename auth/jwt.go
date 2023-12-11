@@ -24,7 +24,7 @@ func extractTokenFromHeader(authorizationHeader string) string {
 
 func GenerateToken(user User) (string, error) {
 	claims := customClaims{
-		Id:               user.Id,
+		ID:               user.ID,
 		Email:            user.Email,
 		SubscriptionType: user.SubscriptionType,
 		Role:             user.Role,
@@ -35,7 +35,7 @@ func GenerateToken(user User) (string, error) {
 			IssuedAt:  time.Now().Unix(),
 			Issuer:    "pixel-pulse",
 			NotBefore: time.Now().Unix(),
-			Subject:   user.Id,
+			Subject:   user.ID,
 		},
 	}
 
